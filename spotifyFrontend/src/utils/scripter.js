@@ -1,1 +1,1 @@
-export const backend = "http://localhost:8080";
+export const backend = "https://spotify-clonejs.vercel.app";
