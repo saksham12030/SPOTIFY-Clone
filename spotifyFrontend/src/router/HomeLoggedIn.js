@@ -55,7 +55,7 @@ const Playlist = ({ titletext, titlecard }) => {
   return (
     <div className="mt-4 text-white content">
       <div className="font-semibold text-xl pb-4">{titletext}</div>
-      <div className="w-full flex justify-between space-x-3 p-2">
+      <div className="w-full  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 xl:p-2">
         {titlecard.map((item, index) => {
           return (
             <Card
@@ -73,13 +73,15 @@ const Playlist = ({ titletext, titlecard }) => {
 
 const Card = ({ title, description, imgUrl }) => {
   return (
-    <div className="p-3 w-1/5  rounded-lg bg-opacity-60 bg-black">
-      <div className="rounded-lg w-full py-4">
-        <img src={imgUrl} className=" rounded-lg  w-full" alt="" />
+    <div className="px-3 flex-col space-x-3 xl:flex-col py-2 w-full rounded-lg bg-opacity-60 bg-black">
+      <div className="rounded-lg w-full xl:py-4">
+        <img src={imgUrl} className=" rounded-lg w-full" alt="" />
       </div>
 
       <div className="text-white font-semibold py-3 ">{title}</div>
-      <div className="text-gray-300 text-sm">{description}</div>
+      <div className="hidden md:block xl:block text-gray-300 text-sm">
+        {description}
+      </div>
     </div>
   );
 };

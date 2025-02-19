@@ -15,7 +15,7 @@ const Textimages = ({ image, text, active,targetlink,onclick}) => {
         <div
           className={`${
             active ? "text-white" : "text-gray-300"
-          } hover:text-white text-sm font-semibold cursor-pointer`}
+          } hover:text-white text-sm font-semibold hidden xl:block md:block cursor-pointer`}
         >
           {text}
         </div>

@@ -15,6 +15,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Search from "./router/Search";
 import SinglePlaylist from "./router/SinglePlaylist";
 function App() {
+  // dotenv.config();
   //eslint-disable-next-line 
   const [cookie,setcookie]=useCookies(["token"]);
   const [soundplayed, setSoundplayed] = useState(null);
@@ -59,7 +60,7 @@ function App() {
         ) : (
           <Routes>
             <Route path="/login" element={<Logincomponent />} />
-            <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/signup" element={<Signup />} />
             <Route path="*" element={<Navigate to="/login" />} />
           </Routes>

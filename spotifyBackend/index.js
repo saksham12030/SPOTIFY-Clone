@@ -11,16 +11,18 @@ const playlists=require("./router/playlists")
 const cors = require("cors");
 
 require("dotenv").config();
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Allow your frontend domain
+    // origin: "https://spotffy-backend.vercel.app", // Allow your frontend domain
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+    credentials: true, // Allow cookies if needed
+  })
+);
 app.use(express.json());
 app.use(passport.initialize());
 mongoose
-  .connect(
-    `mongodb+srv://saksham776:${process.env.password}@cluster0.5bjbxvp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`,
-    {
-      serverSelectionTimeoutMS: 30000,
-    }
-  )
+  .connect(process.env.MONGO_URI,)
   .then(console.log("mongoose connected"));
 
 let JwtStrategy = require("passport-jwt").Strategy,

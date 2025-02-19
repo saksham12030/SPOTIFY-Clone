@@ -12,31 +12,36 @@ const CreatePlaylistmodal = ({closemodel}) => {
         }
     }
   return (
-    <div className="absolute bg-black flex items-center justify-center  bg-opacity-80 w-screen h-screen" onClick={closemodel}>
+    <div
+      className="absolute bg-black flex items-center justify-center  bg-opacity-80 w-screen h-screen"
+      onClick={closemodel}
+    >
       <div
-        className="w-1/3 rounded-md text-white p-3"
-        onClick={(e)=>e.stopPropagation()}
-
+        className="xl:w-1/3 md:w-1/3 sm:w-2/3 w-full rounded-md text-white p-3"
+        onClick={(e) => e.stopPropagation()}
         style={{ backgroundColor: "#121212" }}
       >
-        <div className='font-semibold w-full py-2'>
-          Create playlist
+        <div className="font-semibold w-full py-2">Create playlist</div>
+        <div className=" flex-cols space-y-1  px-1 items-center justify-center">
+          <Textinput
+            labelname="Playlist Name"
+            placeholder="Enter Playlist Name"
+            value={playlistname}
+            setValue={setPlaylistName}
+          />
+          <Textinput
+            labelname="Playlist Thumbnail"
+            placeholder="Enter Playlist Thumbnail"
+            value={playlistthumbnail}
+            setValue={setPlaylistthumbnail}
+          />
         </div>
-        <div className=' flex-cols space-y-1  px-1 items-center justify-center'>
-                <Textinput   
-                    labelname="Playlist Name"
-                    placeholder="Enter Playlist Name"
-                    value={playlistname}
-                    setValue={setPlaylistName}
-                />
-                <Textinput
-                    labelname="Playlist Thumbnail"
-                    placeholder="Enter Playlist Thumbnail"
-                    value={playlistthumbnail}
-                    setValue={setPlaylistthumbnail}
-                />
-      </div>
-        <div className='bg-white text-black cursor-pointer rounded w-1/3 mx-auto my-3 flex items-center justify-center py-2' onClick={createplaylist}>Create Playlist</div>
+        <div
+          className="bg-white text-black cursor-pointer rounded w-1/3 mx-auto my-3 flex items-center justify-center py-2"
+          onClick={createplaylist}
+        >
+          Create 
+        </div>
       </div>
     </div>
   );

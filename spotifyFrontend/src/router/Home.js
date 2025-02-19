@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Textimages from "../Component/shared/Textimages";
 import { Icon } from "@iconify-icon/react";
 import spotify_logo from "../asset/spotify_logo_white.svg"
@@ -39,85 +40,88 @@ const Focusdetail = [
 const Home=()=>{
     return (
       <div className="w-full h-full flex ">
-        
-          <div className="lefter w-1/5 h-full bg-black flex flex-col justify-between pb-4">
-            <div>
-              <div className="text-white p-5">
-                <img src={spotify_logo} width={150} alt="" />
-              </div>
-              <div className="py-4">
-                <Textimages image="oi-home" text="Home" active={true} />
-                <Textimages
-                  image="ion:search-sharp"
-                  text="Search"
-                  active={false}
-                />
-                <Textimages
-                  image="icomoon-free:books"
-                  text="Library"
-                  active={false}
-                />
-                <Textimages
-                  image="material-symbols:library-music"
-                  text="My Music"
-                  active={false}
-                />
-              </div>
-              <div className="pt-5">
-                <Textimages
-                  image="carbon:add-filled"
-                  text="Create Playlist"
-                  active={false}
-                />
-                <Textimages
-                  image="solar:chat-square-like-bold-duotone"
-                  text="Liked Song"
-                  active={false}
-                />
-              </div>
+        <div className="lefter w-1/5 h-full bg-black flex flex-col justify-between pb-4">
+          <div>
+            <div className="text-white p-5">
+              <img src={spotify_logo} width={150} alt="" />
             </div>
-            <div className="px-5">
-              <div className="border-gray-100 text-white flex items-center justify-center border-2 rounded-full w-2/5 px-3 py-1">
-                <Icon icon="ph:globe" style={{ color: "white" }} />
-                <div className="text-sm ml-1">English</div>
-              </div>
+            <div className="py-4">
+              <Textimages image="oi-home" text="Home" active={true} />
+              <Textimages
+                image="ion:search-sharp"
+                text="Search"
+                active={false}
+              />
+              <Textimages
+                image="icomoon-free:books"
+                text="Library"
+                active={false}
+              />
+              <Textimages
+                image="material-symbols:library-music"
+                text="My Music"
+                active={false}
+              />
+            </div>
+            <div className="pt-5">
+              <Textimages
+                
+                image="carbon:add-filled"
+                text="Create Playlist"
+                active={false}
+              />
+              <Textimages
+                image="solar:chat-square-like-bold-duotone"
+                text="Liked Song"
+                active={false}
+              />
             </div>
           </div>
-
-          <div
-            className="righter w-4/5 overflow-auto"
-            style={{ backgroundColor: "#121212" }}
-          >
-            <div
-              className="nav w-full bg-opacity-40 bg-black flex justify-end"
-              style={{ height: "10%" }}
-            >
-              <div className="w-1/2 flex h-full ">
-                <div className="w-3/5 flex items-center justify-around">
-                  <Texter text={"Premium"} active={false} />
-                  <Texter text={"Support"} active={false} />
-                  <Texter text={"Download"} active={false} />
-                  <div className="h-1/2  border-r border-white"></div>
-                </div>
-                <div className="w-2/5 h-full flex justify-around items-center">
-                  <Texter text={"Sign up"} active={false} />
-                  <div className="bg-white font-semibold rounded-full h-2/3 flex items-center justify-center px-8 ">
-                    Log in
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 overflow-auto">
-              <Playlist titletext={"Focus"} titlecard={Focusdetail} />
-              <Playlist
-                titletext={"Spotify Playlists"}
-                titlecard={Focusdetail}
-              />
-              <Playlist titletext={"Sound of India"} titlecard={Focusdetail} />
+          <div className="px-5">
+            <div className="border-gray-100 text-white flex items-center justify-center border-2 rounded-full w-2/5 px-3 py-1">
+              <Icon icon="ph:globe" style={{ color: "white" }} />
+              <div className="text-sm ml-1">English</div>
             </div>
           </div>
         </div>
-        
+
+        <div
+          className="righter w-4/5 overflow-auto"
+          style={{ backgroundColor: "#121212" }}
+        >
+          <div
+            className="nav w-full bg-opacity-40 bg-black flex justify-end"
+            style={{ height: "10%" }}
+          >
+            <div className="w-1/2 flex h-full ">
+              <div className="w-3/5 flex items-center justify-around">
+                <Texter text={"Premium"} active={false} />
+                <Texter text={"Support"} active={false} />
+                <Texter text={"Download"} active={false} />
+                <div className="h-1/2  border-r border-white"></div>
+              </div>
+              <div className="w-2/5 h-full flex justify-around items-center">
+                <Link to="/signup">
+                  {" "}
+                  <Texter text={"Sign up"} active={false} />
+                </Link>
+
+                <Link
+                  to="/login"
+                  className="bg-white font-semibold rounded-full h-2/3 flex items-center justify-center px-8 "
+                >
+                  Log in
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="p-4 overflow-auto">
+            <Playlist titletext={"Focus"} titlecard={Focusdetail} />
+            <Playlist titletext={"Spotify Playlists"} titlecard={Focusdetail} />
+            <Playlist titletext={"Sound of India"} titlecard={Focusdetail} />
+          </div>
+        </div>
+      </div>
     );
 }
 
@@ -125,7 +129,7 @@ const Playlist=({titletext,titlecard})=>{
   return (  
     <div className="mt-4 text-white content">
       <div className="font-semibold text-xl pb-4">{titletext}</div>
-      <div className="w-full flex justify-between space-x-3 p-2">
+      <div className="w-full flex justify-between space-x-3 p-2" >
         {titlecard.map((item,index)=>{
           return (
           <Card 

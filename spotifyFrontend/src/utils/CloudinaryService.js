@@ -12,5 +12,9 @@ export const url = (publicId, options) => {
 };
 
 export const openUploadWidget = (options, callback) => {
-  return window.cloudinary.openUploadWidget(options, callback);
+  if (!window.cloudinary) {
+    console.error("Cloudinary SDK is not loaded yet.");
+    return null;
+  }
+  return window.cloudinary.createUploadWidget(options, callback);
 };

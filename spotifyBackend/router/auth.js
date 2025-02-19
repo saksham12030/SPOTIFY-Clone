@@ -6,6 +6,7 @@ const {getToken}=require("../utils/helper");
 router.post("/register",async (req,res)=>{
     const {firstname,lastname,email,username,password}=req.body;
     const users=await user.findOne({email});
+    console.log(users);
     if(users){
         return res.status(400).json({error:"User already exists"});
     }
@@ -20,11 +21,10 @@ router.post("/register",async (req,res)=>{
     const token=getToken(email,newusers);
     const usertoreturn={...newusers.toJSON(),token};
     delete usertoreturn.password; 
-    return res.status("200").send(usertoreturn);
+    return res.status(200).send(usertoreturn);
 })  
 
 router.post("/login",async (req,res)=>{
-
     const {email,password}=req.body;
     try{
         const users = await user.findOne({ email });

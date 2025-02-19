@@ -23,10 +23,10 @@ const Upload = () => {
 
   return (
     <LoggedinContainer>
-      <div className="p-4 overflow-auto text-white">
-        <div className="font-semibold text-xl pb-4">Upload</div>
-        <div className="flex w-2/3 gap-x-2">
-          <div className="w-1/2">
+      <div className="p-4 w-full flex flex-col overflow-auto text-white">
+        <div className=" font-semibold text-xl pb-4">Upload</div>
+        <div className="flex flex-col xl:flex-row md:flex-row xl:w-2/3 xl:gap-x-2 md:gap-x-1">
+          <div className="w-full xl:w-1/2">
             <Textinput
               labelname="Name "
               placeholder="Name"
@@ -34,7 +34,7 @@ const Upload = () => {
               setValue={setName}
             />
           </div>
-          <div className="w-1/2">
+          <div className="w-full xl:w-1/2">
             <Textinput
               labelname="Thumbnail "
               placeholder="Thumbnail "
@@ -49,16 +49,12 @@ const Upload = () => {
               {songName.substring(0, 20)}...
             </div>
           ) : (
-            <CloudinaryUpload
-              setUrl={setUrl}
-              setSongName={setSongName}
-            />
+            <CloudinaryUpload setUrl={setUrl} setSongName={setSongName} />
           )}
         </div>
-
       </div>
       <div
-        className="bg-white rounded-full py-2 flex w-40 items-center justify-center m-3 cursor-pointer"
+        className="bg-white rounded-full hover:bg-gray-600 border border-white hover:text-white py-2 flex w-40 items-center justify-center m-3 cursor-pointer"
         onClick={submitbtn}
       >
         Submit Song

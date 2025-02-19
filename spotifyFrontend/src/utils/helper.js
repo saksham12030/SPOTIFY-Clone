@@ -3,6 +3,7 @@ export const makeUnauthenticatedAsync = async (route, body) => {
   const response = await fetch(backend + route, {
     method: "POST",
     headers: {
+      'Access-Control-Allow-Origin': '*',
       "Content-type": "application/json",
     },
     body: JSON.stringify(body),
@@ -16,6 +17,7 @@ export const makeAuthenticatedAsync = async (route, body) => {
   const response = await fetch(backend + route, {
     method: "POST",
     headers: {
+      'Access-Control-Allow-Origin': '*',
       "Content-type": "application/json",
       "Authorization":`Bearer ${token}`
     },
@@ -30,6 +32,7 @@ export const makeAuthenticatedGetAsync = async (route) => {
   const response = await fetch(backend + route, {
     method: "GET",
     headers: {
+      'Access-Control-Allow-Origin': '*',
       "Content-type": "application/json",
       "Authorization":`Bearer ${token}`
     },
