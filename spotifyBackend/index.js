@@ -13,12 +13,13 @@ const cors = require("cors");
 require("dotenv").config();
 app.use(
   cors({
-    origin: "https://spotify-clone-5j24.vercel.app", // Allow your frontend domain
-    // origin: "https://spotffy-backend.vercel.app", // Allow your frontend domain
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
-    credentials: true, // Allow cookies if needed
+    origin: "https://spotify-clone-5j24.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
+
 app.options("*", cors());
 app.use(express.json());
 app.use(passport.initialize());
