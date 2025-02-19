@@ -13,7 +13,7 @@ const cors = require("cors");
 require("dotenv").config();
 app.use(
   cors({
-    origin: "http://localhost:3000", // Allow your frontend domain
+    origin: "https://spotify-clone-5j24.vercel.app", // Allow your frontend domain
     // origin: "https://spotffy-backend.vercel.app", // Allow your frontend domain
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
     credentials: true, // Allow cookies if needed
