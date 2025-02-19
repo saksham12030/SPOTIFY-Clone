@@ -13,7 +13,7 @@ const cors = require("cors");
 require("dotenv").config();
 app.use(
   cors({
-    origin: "https://spotify-clone-5j24.vercel.app",
+    origin: "https://spotify-clone-qkr5.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,

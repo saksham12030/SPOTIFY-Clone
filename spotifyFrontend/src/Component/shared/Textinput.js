@@ -7,7 +7,7 @@ const Textinput = ({labelname,placeholder,value,setValue}) => {
         {labelname}
       </label>
       <input
-        id="13"
+        
         type="text"
         className="pb-2 border-2 text-black placeholder-gray-500 border-gray-400 border-solid rounded p-2"
         placeholder={placeholder}
